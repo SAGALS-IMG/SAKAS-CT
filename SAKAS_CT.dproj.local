@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/07/16 20:55:30.000.485,=C:\Users\akn\Documents\Embarcadero\Studio\Projects\Unit17.pas</Transaction>
+    <Transaction>2021/07/16 20:56:11.000.703,E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\main.pas=C:\Users\akn\Documents\Embarcadero\Studio\Projects\Unit17.pas</Transaction>
+    <Transaction>2021/07/16 20:56:11.000.703,E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\main.dfm=C:\Users\akn\Documents\Embarcadero\Studio\Projects\Unit17.dfm</Transaction>
+    <Transaction>2021/07/16 20:56:17.000.655,E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\SAKAS_CT.dproj=C:\Users\akn\Documents\Embarcadero\Studio\Projects\Project17.dproj</Transaction>
+    <Transaction>2021/07/16 20:57:33.000.543,=E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\Unit_PW.pas</Transaction>
+    <Transaction>2021/07/16 20:57:33.000.072,=E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\SelShape.pas</Transaction>
+    <Transaction>2021/07/16 20:57:33.000.256,=E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\Unit_LP.pas</Transaction>
+    <Transaction>2021/07/16 20:57:33.000.082,=E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\UFFT.pas</Transaction>
+    <Transaction>2021/07/17 13:26:10.000.285,=E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\Unit_SAKAS.pas</Transaction>
+    <Transaction>2021/07/17 20:05:28.000.834,=E:\Dropbox\Documents\Program\_20210716_SAKAS_CT\Unit_ABOUT.pas</Transaction>
+    <Transaction>2021/11/14 11:32:37.000.075,=E:\Dropbox\Documents\Program\_20211115_Com\UFFT.pas</Transaction>
+    <Transaction>2021/11/14 11:32:37.000.062,=E:\Dropbox\Documents\Program\_20211115_Com\SelShape.pas</Transaction>
+    <Transaction>2021/11/14 11:32:37.000.277,=E:\Dropbox\Documents\Program\_20211115_Com\Unit_LP.pas</Transaction>
+    <Transaction>2021/11/14 11:32:37.000.620,=E:\Dropbox\Documents\Program\_20211115_Com\Unit_PW.pas</Transaction>
+    <Transaction>2021/11/14 11:32:38.000.702,=E:\Dropbox\Documents\Program\_20211115_Com\Unit_SAKAS.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,19 @@
+program SAKAS_CT;
+
+uses
+  Vcl.Forms,
+  main in 'main.pas' {Form_main},
+  SelShape in 'SelShape.pas',
+  UFFT in 'UFFT.pas',
+  Unit_LP in 'Unit_LP.pas' {Form_LP},
+  Unit_PW in 'Unit_PW.pas' {Form_PW};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm_main, Form_main);
+  Application.CreateForm(TForm_PW, Form_PW);
+  Application.Run;
+end.
