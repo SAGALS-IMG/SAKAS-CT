@@ -215,6 +215,8 @@ type
     Edit_Dir: TEdit;
     Label37: TLabel;
     SB_Dir: TSpeedButton;
+    BB_STOP_Proc: TBitBtn;
+    CB_Ext: TComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
@@ -261,6 +263,7 @@ type
     procedure UD_ImgNoClick(Sender: TObject; Button: TUDBtnType);
     procedure SB_TagList_ReloadClick(Sender: TObject);
     procedure SB_DirClick(Sender: TObject);
+    procedure BB_STOP_ProcClick(Sender: TObject);
 
   private
     { Private éŒ¾ }
@@ -787,10 +790,13 @@ end;
 
 procedure TForm_main.CLB_FileClick(Sender: TObject);
 begin
-  TagFN :=  CLB_File.Items[CLB_File.ItemIndex];
-  OpenTag(Sender);
-  if Form_SAKAS.Showing then
-    SB_ViewInfoClick(Sender);
+  if (CLB_File.ItemIndex>=0) then
+  begin
+    TagFN :=  CLB_File.Items[CLB_File.ItemIndex];
+    OpenTag(Sender);
+    if Form_SAKAS.Showing then
+      SB_ViewInfoClick(Sender);
+  end;
 end;
 
 procedure TForm_main.Edit_DC_AmpKeyUp(Sender: TObject; var Key: Word;
@@ -819,6 +825,16 @@ begin
       CLB_File.Checked[li] := false;
     end;
   end;
+end;
+
+procedure TForm_main.BB_STOP_ProcClick(Sender: TObject);
+var
+  li:longint;
+begin
+  for li:=0 to CLB_File.Items.Count-1 do
+    CLB_File.Checked[li] := false;
+  Go := false;
+  Drawing := true;
 end;
 
 procedure TForm_main.SB_FOpenClick(Sender: TObject);
@@ -872,7 +888,7 @@ procedure TForm_main.SB_DirClick(Sender: TObject);
 begin
   if OpenDialog1.Execute then
   begin
-    Edit_Dir.Text := GetDir(OpenDialog1.FileName);
+    Edit_Dir.Text := ExtractFilePath(OpenDialog1.FileName);
     SB_TagList_ReloadClick(Sender);
   end;
 end;
@@ -891,9 +907,9 @@ begin
   if Edit_Dir.Text<>'' then
   begin
     CLB_File.Items.Clear;
-    Path := ExtractFilePath(OpenDialog1.FileName);
+    Path := ExtractFilePath(Edit_Dir.Text);
 
-    FileList := TDirectory.GetFiles(Path, '*.tag' , TSearchOption.soTopDirectoryOnly);
+    FileList := TDirectory.GetFiles(Path, CB_Ext.Items[CB_Ext.ItemIndex] , TSearchOption.soTopDirectoryOnly);
     for FileName in FileList do
     begin
       CLB_File.Items.Add(FileName);
@@ -1737,8 +1753,16 @@ begin
     Edit_ImgNo.Text := lk.ToString;
     Edit_FN.Text := Sino_Dir+lFN;
 
-    Edit_CTC.Text := FloatToStr((lk-CTST)/(CTEnd-CTST)*(CTCEnd-CTCST)+CTCST);
-    Edit_dST.Text := FloatToStr((lk-CTST)/(CTEnd-CTST)*(dST_End-dST_ST)+dST_ST);
+    if CTST<>CTEnd then
+    begin
+      Edit_CTC.Text := FloatToStr((lk-CTST)/(CTEnd-CTST)*(CTCEnd-CTCST)+CTCST);
+      Edit_dST.Text := FloatToStr((lk-CTST)/(CTEnd-CTST)*(dST_End-dST_ST)+dST_ST);
+    end
+    else
+    begin
+      Edit_CTC.Text := CTST.ToString;
+      Edit_dST.Text := '0';
+    end;
 
     BB_Load_dataClick(Sender);
     if not(CB_WOC.Checked) then
@@ -1796,7 +1820,6 @@ begin
   Go := false;
   Drawing := true;
 end;
-
 
 
 //*****************************************************

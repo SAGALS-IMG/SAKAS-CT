@@ -1753,8 +1753,16 @@ begin
     Edit_ImgNo.Text := lk.ToString;
     Edit_FN.Text := Sino_Dir+lFN;
 
-    Edit_CTC.Text := FloatToStr((lk-CTST)/(CTEnd-CTST)*(CTCEnd-CTCST)+CTCST);
-    Edit_dST.Text := FloatToStr((lk-CTST)/(CTEnd-CTST)*(dST_End-dST_ST)+dST_ST);
+    if CTST<>CTEnd then
+    begin
+      Edit_CTC.Text := FloatToStr((lk-CTST)/(CTEnd-CTST)*(CTCEnd-CTCST)+CTCST);
+      Edit_dST.Text := FloatToStr((lk-CTST)/(CTEnd-CTST)*(dST_End-dST_ST)+dST_ST);
+    end
+    else
+    begin
+      Edit_CTC.Text := CTCST.ToString;
+      Edit_dST.Text := '0';
+    end;
 
     BB_Load_dataClick(Sender);
     if not(CB_WOC.Checked) then

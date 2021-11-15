@@ -18,7 +18,7 @@ object Form_main: TForm_main
   TextHeight = 13
   object Splitter1: TSplitter
     Left = 0
-    Top = 209
+    Top = 196
     Width = 416
     Height = 3
     Cursor = crVSplit
@@ -39,7 +39,7 @@ object Form_main: TForm_main
     Left = 0
     Top = 0
     Width = 416
-    Height = 209
+    Height = 196
     Align = alTop
     Caption = 'Tag Files'
     Color = 16771022
@@ -56,7 +56,7 @@ object Form_main: TForm_main
       Left = 2
       Top = 18
       Width = 412
-      Height = 95
+      Height = 79
       Align = alTop
       BevelOuter = bvNone
       Font.Charset = DEFAULT_CHARSET
@@ -89,8 +89,8 @@ object Form_main: TForm_main
         OnClick = SB_HelpClick
       end
       object SB_ViewInfo: TSpeedButton
-        Left = 288
-        Top = 67
+        Left = 241
+        Top = 25
         Width = 113
         Height = 22
         Caption = 'View Details'
@@ -122,35 +122,7 @@ object Form_main: TForm_main
         Top = 0
         Width = 23
         Height = 22
-        Flat = True
-        Glyph.Data = {
-          76010000424D7601000000000000760000002800000020000000100000000100
-          04000000000000010000130B0000130B00001000000000000000000000000000
-          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
-          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
-          3333333333FFFFF3333333333999993333333333F77777FFF333333999999999
-          3333333777333777FF33339993707399933333773337F3777FF3399933000339
-          9933377333777F3377F3399333707333993337733337333337FF993333333333
-          399377F33333F333377F993333303333399377F33337FF333373993333707333
-          333377F333777F333333993333101333333377F333777F3FFFFF993333000399
-          999377FF33777F77777F3993330003399993373FF3777F37777F399933000333
-          99933773FF777F3F777F339993707399999333773F373F77777F333999999999
-          3393333777333777337333333999993333333333377777333333}
-        NumGlyphs = 2
-        OnClick = SB_TagList_ReloadClick
-      end
-      object Label37: TLabel
-        Left = 11
-        Top = 4
-        Width = 18
-        Height = 13
-        Caption = 'Dir'
-      end
-      object SB_Dir: TSpeedButton
-        Left = 333
-        Top = 0
-        Width = 23
-        Height = 22
+        Hint = 'Get tag list'
         Flat = True
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
@@ -166,12 +138,47 @@ object Form_main: TForm_main
           55557FFFFFFFFF7555550000000000555555777777777755555550FBFB055555
           5555575FFF755555555557000075555555555577775555555555}
         NumGlyphs = 2
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = SB_TagList_ReloadClick
+      end
+      object Label37: TLabel
+        Left = 11
+        Top = 4
+        Width = 16
+        Height = 13
+        Caption = 'Dir'
+      end
+      object SB_Dir: TSpeedButton
+        Left = 333
+        Top = 0
+        Width = 23
+        Height = 22
+        Hint = 'Select Dir'
+        HelpType = htKeyword
+        Flat = True
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00303333333333
+          333337F3333333333333303333333333333337F33FFFFF3FF3FF303300000300
+          300337FF77777F77377330000BBB0333333337777F337F33333330330BB00333
+          333337F373F773333333303330033333333337F3377333333333303333333333
+          333337F33FFFFF3FF3FF303300000300300337FF77777F77377330000BBB0333
+          333337777F337F33333330330BB00333333337F373F773333333303330033333
+          333337F3377333333333303333333333333337FFFF3FF3FFF333000003003000
+          333377777F77377733330BBB0333333333337F337F33333333330BB003333333
+          333373F773333333333330033333333333333773333333333333}
+        NumGlyphs = 2
+        ParentShowHint = False
+        ShowHint = True
         OnClick = SB_DirClick
       end
       object BB_Proc: TBitBtn
-        Left = 202
-        Top = 64
-        Width = 80
+        Left = 10
+        Top = 48
+        Width = 100
         Height = 25
         Caption = 'Reconst'
         Font.Charset = DEFAULT_CHARSET
@@ -179,13 +186,27 @@ object Form_main: TForm_main
         Font.Height = -13
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000130B0000130B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          33333333333333333333EEEEEEEEEEEEEEE333FFFFFFFFFFFFF3E00000000000
+          00E337777777777777F3E0F77777777770E337F33333333337F3E0F333333333
+          70E337F33333333337F3E0F33333333370E337F333FF3F3337F3E0F330030333
+          70E337F3377F7FF337F3E0F33003003370E337F3377F77FF37F3E0F330030003
+          70E337F3377F777337F3E0F33003003370E337F3377F773337F3E0F330030333
+          70E337F33773733337F3E0F33333333370E337F33333333337F3E0F333333333
+          70E337F33333333337F3E0FFFFFFFFFFF0E337FFFFFFFFFFF7F3E00000000000
+          00E33777777777777733EEEEEEEEEEEEEEE33333333333333333}
+        NumGlyphs = 2
         ParentFont = False
         TabOrder = 0
         OnClick = BB_ProcClick
       end
       object CB_AllCK: TCheckBox
-        Left = 288
-        Top = 48
+        Left = 245
+        Top = 52
         Width = 82
         Height = 17
         Caption = 'Check All'
@@ -199,12 +220,11 @@ object Form_main: TForm_main
         OnClick = CB_AllCKClick
       end
       object RB_Compled: TRadioButton
-        Left = 142
-        Top = 38
+        Left = 136
+        Top = 28
         Width = 84
         Height = 17
         Caption = 'Completed'
-        Checked = True
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -212,11 +232,10 @@ object Form_main: TForm_main
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 2
-        TabStop = True
       end
       object Panel1: TPanel
-        Left = 3
-        Top = 38
+        Left = 11
+        Top = 28
         Width = 124
         Height = 16
         BevelOuter = bvNone
@@ -224,8 +243,9 @@ object Form_main: TForm_main
         object RB_Proc3: TRadioButton
           Left = 0
           Top = 0
-          Width = 113
-          Height = 17
+          Width = 124
+          Height = 16
+          Align = alClient
           Caption = 'CT Cond. in Tag'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -239,7 +259,7 @@ object Form_main: TForm_main
       object Edit_Dir: TEdit
         Left = 35
         Top = 0
-        Width = 292
+        Width = 214
         Height = 22
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -250,22 +270,69 @@ object Form_main: TForm_main
         TabOrder = 4
         Text = 'Edit_Dir'
       end
+      object BB_STOP_Proc: TBitBtn
+        Left = 119
+        Top = 48
+        Width = 100
+        Height = 25
+        Caption = 'STOP'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000130B0000130B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          33333333333333333333EEEEEEEEEEEEEEE333FFFFFFFFFFFFF3E00000000000
+          00E337777777777777F3E0F77777777770E337F33333333337F3E0F333333333
+          70E337F33333333337F3E0F33333333370E337F333FFFFF337F3E0F330000033
+          70E337F3377777F337F3E0F33000003370E337F3377777F337F3E0F330000033
+          70E337F3377777F337F3E0F33000003370E337F3377777F337F3E0F330000033
+          70E337F33777773337F3E0F33333333370E337F33333333337F3E0F333333333
+          70E337F33333333337F3E0FFFFFFFFFFF0E337FFFFFFFFFFF7F3E00000000000
+          00E33777777777777733EEEEEEEEEEEEEEE33333333333333333}
+        NumGlyphs = 2
+        ParentFont = False
+        TabOrder = 5
+        OnClick = BB_STOP_ProcClick
+      end
+      object CB_Ext: TComboBox
+        Left = 255
+        Top = 0
+        Width = 74
+        Height = 22
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ItemIndex = 0
+        ParentFont = False
+        TabOrder = 6
+        Text = '*.tag'
+        Items.Strings = (
+          '*.tag'
+          '*.ini'
+          '*.*')
+      end
     end
     object Panel3: TPanel
       Left = 2
-      Top = 113
+      Top = 97
       Width = 412
-      Height = 94
+      Height = 97
       Align = alClient
       BevelOuter = bvNone
       Caption = 'Panel3'
       TabOrder = 1
-      ExplicitTop = 81
       object CLB_File: TCheckListBox
         Left = 0
         Top = 0
         Width = 412
-        Height = 94
+        Height = 97
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -281,9 +348,9 @@ object Form_main: TForm_main
   end
   object Memo: TRichEdit
     Left = 0
-    Top = 748
+    Top = 735
     Width = 416
-    Height = 67
+    Height = 80
     Align = alClient
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clWindowText
@@ -295,12 +362,10 @@ object Form_main: TForm_main
     ScrollBars = ssBoth
     TabOrder = 2
     Zoom = 100
-    ExplicitTop = 716
-    ExplicitHeight = 99
   end
   object GroupBox6: TGroupBox
     Left = 0
-    Top = 329
+    Top = 316
     Width = 416
     Height = 419
     Align = alTop
@@ -312,7 +377,6 @@ object Form_main: TForm_main
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 3
-    ExplicitTop = 297
     object PageControl1: TPageControl
       Left = 2
       Top = 18
@@ -2807,7 +2871,7 @@ object Form_main: TForm_main
   end
   object GroupBox7: TGroupBox
     Left = 0
-    Top = 212
+    Top = 199
     Width = 416
     Height = 117
     Align = alTop
@@ -2822,7 +2886,6 @@ object Form_main: TForm_main
     ParentColor = False
     ParentFont = False
     TabOrder = 4
-    ExplicitTop = 180
     object BB_Load_data: TBitBtn
       Left = 5
       Top = 22
@@ -2972,7 +3035,7 @@ object Form_main: TForm_main
       OnClick = BB_SaveClick
     end
     object Edit_ImgNo: TEdit
-      Left = 5
+      Left = 6
       Top = 53
       Width = 66
       Height = 24
@@ -2980,7 +3043,7 @@ object Form_main: TForm_main
       Text = '500'
     end
     object UD_ImgNo: TUpDown
-      Left = 71
+      Left = 72
       Top = 53
       Width = 16
       Height = 24
@@ -2992,7 +3055,7 @@ object Form_main: TForm_main
     end
   end
   object OpenDialog1: TOpenDialog
-    Left = 50
-    Top = 137
+    Left = 42
+    Top = 121
   end
 end

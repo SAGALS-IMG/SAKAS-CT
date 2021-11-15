@@ -17,7 +17,6 @@ type
     GroupBox3: TGroupBox;
     Panel2: TPanel;
     SB_Help: TSpeedButton;
-    BB_Get_List: TBitBtn;
     BB_Proc: TBitBtn;
     CB_AllCK: TCheckBox;
     Panel3: TPanel;
@@ -216,6 +215,8 @@ type
     Edit_Dir: TEdit;
     Label37: TLabel;
     SB_Dir: TSpeedButton;
+    BB_STOP_Proc: TBitBtn;
+    CB_Ext: TComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
@@ -230,8 +231,6 @@ type
     procedure SB_CalcClick(Sender: TObject);
 
     procedure Init_Cond(Sender: TObject);
-
-    procedure BB_Get_ListClick(Sender: TObject);
     procedure CB_AllCKClick(Sender: TObject);
     procedure CLB_FileClick(Sender: TObject);
 
@@ -264,6 +263,7 @@ type
     procedure UD_ImgNoClick(Sender: TObject; Button: TUDBtnType);
     procedure SB_TagList_ReloadClick(Sender: TObject);
     procedure SB_DirClick(Sender: TObject);
+    procedure BB_STOP_ProcClick(Sender: TObject);
 
   private
     { Private éŒ¾ }
@@ -322,6 +322,8 @@ begin
       WindowState := wsMaximized
     else
       WindowState := wsNormal;
+
+    Edit_Dir.Text := Ini.ReadString( 'Param', 'Tag_Dir', '' );
 
     Edit_OW.Text  := Ini.ReadString( 'Param', 'OW', '1000' );
     Edit_OH.Text  := Ini.ReadString( 'Param', 'OH', '500' );
@@ -411,6 +413,8 @@ begin
     Ini.WriteInteger( 'Form_main', 'Left', Left);
     Ini.WriteInteger( 'Form_main', 'Width', Width );
     Ini.WriteInteger( 'Form_main', 'Height', Height );
+
+    Ini.WriteString( 'Param', 'Tag_Dir', Edit_Dir.Text );
 
     Ini.WriteString( 'Param', 'OW', Edit_OW.Text );
     Ini.WriteString( 'Param', 'OH', Edit_OH.Text );
@@ -776,25 +780,6 @@ begin
   CloseFile(F);
 end;
 
-procedure TForm_main.BB_Get_ListClick(Sender: TObject);
-var
-  Path: String;
-  FileList: TStringDynArray;
-  FileName: String;
-begin
-  if OpenDialog1.Execute then
-  begin
-    CLB_File.Items.Clear;
-    Path := ExtractFilePath(OpenDialog1.FileName);
-
-    FileList := TDirectory.GetFiles(Path, CB_Ext.Items[CB_Ext.ItemIndex] , TSearchOption.soTopDirectoryOnly);
-    for FileName in FileList do
-    begin
-      CLB_File.Items.Add(FileName);
-    end;
-  end;
-end;
-
 procedure TForm_main.CB_AllCKClick(Sender: TObject);
 var
   li:longint;
@@ -805,10 +790,13 @@ end;
 
 procedure TForm_main.CLB_FileClick(Sender: TObject);
 begin
-  TagFN :=  CLB_File.Items[CLB_File.ItemIndex];
-  OpenTag(Sender);
-  if Form_SAKAS.Showing then
-    SB_ViewInfoClick(Sender);
+  if (CLB_File.ItemIndex>=0) then
+  begin
+    TagFN :=  CLB_File.Items[CLB_File.ItemIndex];
+    OpenTag(Sender);
+    if Form_SAKAS.Showing then
+      SB_ViewInfoClick(Sender);
+  end;
 end;
 
 procedure TForm_main.Edit_DC_AmpKeyUp(Sender: TObject; var Key: Word;
@@ -837,6 +825,16 @@ begin
       CLB_File.Checked[li] := false;
     end;
   end;
+end;
+
+procedure TForm_main.BB_STOP_ProcClick(Sender: TObject);
+var
+  li:longint;
+begin
+  for li:=0 to CLB_File.Items.Count-1 do
+    CLB_File.Checked[li] := false;
+  Go := false;
+  Drawing := true;
 end;
 
 procedure TForm_main.SB_FOpenClick(Sender: TObject);
@@ -890,7 +888,7 @@ procedure TForm_main.SB_DirClick(Sender: TObject);
 begin
   if OpenDialog1.Execute then
   begin
-    Edit_Dir.Text := OpenDialog1.FileName;
+    Edit_Dir.Text := ExtractFilePath(OpenDialog1.FileName);
     SB_TagList_ReloadClick(Sender);
   end;
 end;
@@ -909,9 +907,9 @@ begin
   if Edit_Dir.Text<>'' then
   begin
     CLB_File.Items.Clear;
-    Path := ExtractFilePath(OpenDialog1.FileName);
+    Path := ExtractFilePath(Edit_Dir.Text);
 
-    FileList := TDirectory.GetFiles(Path, '*.tag' , TSearchOption.soTopDirectoryOnly);
+    FileList := TDirectory.GetFiles(Path, CB_Ext.Items[CB_Ext.ItemIndex] , TSearchOption.soTopDirectoryOnly);
     for FileName in FileList do
     begin
       CLB_File.Items.Add(FileName);
@@ -1814,7 +1812,6 @@ begin
   Go := false;
   Drawing := true;
 end;
-
 
 
 //*****************************************************
