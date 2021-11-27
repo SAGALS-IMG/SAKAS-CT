@@ -323,6 +323,8 @@ begin
     else
       WindowState := wsNormal;
 
+    Edit_ImgNo.Text := Ini.ReadString( 'Param', 'ImgNo', '10' );
+
     Edit_Dir.Text := Ini.ReadString( 'Param', 'Tag_Dir', '' );
 
     Edit_OW.Text  := Ini.ReadString( 'Param', 'OW', '1000' );
@@ -414,6 +416,7 @@ begin
     Ini.WriteInteger( 'Form_main', 'Width', Width );
     Ini.WriteInteger( 'Form_main', 'Height', Height );
 
+    Ini.WriteString( 'Param', 'ImgNo', Edit_ImgNo.Text  );
     Ini.WriteString( 'Param', 'Tag_Dir', Edit_Dir.Text );
 
     Ini.WriteString( 'Param', 'OW', Edit_OW.Text );

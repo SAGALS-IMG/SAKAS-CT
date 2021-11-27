@@ -400,6 +400,10 @@ object Form_main: TForm_main
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object SB_FN: TSpeedButton
           Left = 370
           Top = 26
@@ -1099,6 +1103,10 @@ object Form_main: TForm_main
         Font.Style = [fsBold]
         ImageIndex = 1
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Chart1: TChart
           Left = 0
           Top = 210
@@ -1361,6 +1369,10 @@ object Form_main: TForm_main
       object TabSheet3: TTabSheet
         Caption = 'Filter'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Chart2: TChart
           Left = 0
           Top = 201
@@ -1703,6 +1715,10 @@ object Form_main: TForm_main
         Font.Style = [fsBold]
         ImageIndex = 3
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object GroupBox5: TGroupBox
           Left = 0
           Top = 171
@@ -2300,6 +2316,10 @@ object Form_main: TForm_main
       object TabSheet5: TTabSheet
         Caption = 'Reshape'
         ImageIndex = 4
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object GroupBox4: TGroupBox
           Left = 0
           Top = 169
