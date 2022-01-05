@@ -353,6 +353,7 @@ begin
     Edit_SMin.Text := Ini.ReadString( 'Param', 'Conv_Min', '-0.5' );
     Edit_SMax.Text := Ini.ReadString( 'Param', 'Conv_Max', '0.5' );
     Edit_K.Text := Ini.ReadString( 'Param', 'Conv_C', '0.35' );
+    CB_Int.Checked := Ini.ReadBool('Param', 'Integ', false);
 
     CB_LPF.Checked := Ini.ReadBool( 'Param', 'Fil_ON', false );
     Edit_COF.Text := Ini.ReadString( 'Param', 'Fil_COF', '10' );
@@ -446,6 +447,7 @@ begin
     Ini.WriteString( 'Param', 'Conv_Min', Edit_SMin.Text );
     Ini.WriteString( 'Param', 'Conv_Max', Edit_SMax.Text );
     Ini.WriteString( 'Param', 'Conv_C', Edit_K.Text );
+    Ini.WriteBool('Param', 'Integ', CB_Int.Checked );
 
     Ini.WriteBool( 'Param', 'Fil_ON', CB_LPF.Checked);
     Ini.WriteString( 'Param', 'Fil_COF', Edit_COF.Text);
