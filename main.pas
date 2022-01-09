@@ -1578,7 +1578,7 @@ begin
   lPW := PW[1].PW;
   PPro := PW[1].PH;
   PW[2].PW := lPW;
-  PW[2].PH := lPW-1;
+  PW[2].PH := lPW;
 
   if CB_GPU.Checked then
   begin
