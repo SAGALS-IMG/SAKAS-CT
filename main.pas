@@ -217,6 +217,7 @@ type
     SB_Dir: TSpeedButton;
     BB_STOP_Proc: TBitBtn;
     CB_Ext: TComboBox;
+    CB_Ser: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
@@ -336,6 +337,7 @@ begin
     Edit_FN.Text  := Ini.ReadString( 'Param', 'FN', '' );
     Edit_BFN.Text  := Ini.ReadString( 'Param', 'BFN', '' );
     CB_FType.ItemIndex := Ini.ReadInteger('Param', 'FType', 1);
+    CB_Ser.Checked := Ini.ReadBool('Param', 'Series', true);
 
     Edit_a.Text  := Ini.ReadString( 'Param', 'a', '1' );
     Edit_b.Text  := Ini.ReadString( 'Param', 'b', '0' );
@@ -429,6 +431,7 @@ begin
     Ini.WriteString( 'Param', 'FN', Edit_FN.Text );
     Ini.WriteString( 'Param', 'BFN', Edit_BFN.Text );
     Ini.WriteInteger('Param', 'FType', CB_FType.ItemIndex );
+    Ini.WriteBool('Param', 'Series', CB_Ser.Checked);
 
     Ini.WriteString( 'Param', 'a', Edit_a.Text  );
     Ini.WriteString( 'Param', 'b', Edit_b.Text );
@@ -849,17 +852,22 @@ var
 begin
   if OpenDialog1.Execute then
   begin
-    TmpStr := OpenDialog1.FileName;
-    lStr := '';
-    li:=Length(TmpStr);
-    while (TmpStr[li]<>'_') and (li>0) do
+    if CB_Ser.Checked then
     begin
-      lStr := TmpStr[li]+lStr;
-      Dec(li);
-    end;
-    Edit_FN.Text := Copy(TmpStr,1,li);
-    Edit_BFN.Text := Copy(TmpStr,1,li);
-    Edit_ImgNo.Text := lStr;
+      TmpStr := OpenDialog1.FileName;
+      lStr := '';
+      li:=Length(TmpStr);
+      while (TmpStr[li]<>'_') and (li>0) do
+      begin
+        lStr := TmpStr[li]+lStr;
+        Dec(li);
+      end;
+      Edit_FN.Text := Copy(TmpStr,1,li);
+      Edit_BFN.Text := Copy(TmpStr,1,li);
+      Edit_ImgNo.Text := lStr;
+    end
+    else
+      Edit_FN.Text := OpenDialog1.FileName;
   end;
 end;
 
@@ -935,11 +943,19 @@ var
   lROI : TRect;
   lFN : string;
 begin
-  li := StrToInt(Edit_ImgNo.Text);
-  if CB_Dig.Checked then
-    lFN := Edit_FN.Text+Format('%.4d',[li])+'.'+Edit_Ext.Text
+  if CB_Ser.Checked then
+  begin
+    li := StrToInt(Edit_ImgNo.Text);
+    if CB_Dig.Checked then
+      lFN := Edit_FN.Text+Format('%.4d',[li])+'.'+Edit_Ext.Text
+    else
+      lFN := Edit_FN.Text+IntToStr(li)+'.'+Edit_Ext.Text;
+  end
   else
-    lFN := Edit_FN.Text+IntToStr(li)+'.'+Edit_Ext.Text;
+  begin
+    lFN := Edit_FN.Text;
+  end;
+
   if FileExists(lFN) then
   begin
 

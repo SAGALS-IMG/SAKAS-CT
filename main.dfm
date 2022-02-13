@@ -729,6 +729,20 @@ object Form_main: TForm_main
             TabOrder = 11
             Text = '1'
           end
+          object CB_Ser: TCheckBox
+            Left = 175
+            Top = 60
+            Width = 70
+            Height = 17
+            Caption = 'Series'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 12
+          end
         end
         object GroupBox2: TGroupBox
           Left = 0
@@ -2886,6 +2900,7 @@ object Form_main: TForm_main
     ParentColor = False
     ParentFont = False
     TabOrder = 4
+    ExplicitTop = 200
     object BB_Load_data: TBitBtn
       Left = 5
       Top = 22
