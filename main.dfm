@@ -382,7 +382,7 @@ object Form_main: TForm_main
       Top = 18
       Width = 412
       Height = 399
-      ActivePage = TS
+      ActivePage = TabSheet6
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -2900,7 +2900,6 @@ object Form_main: TForm_main
     ParentColor = False
     ParentFont = False
     TabOrder = 4
-    ExplicitTop = 200
     object BB_Load_data: TBitBtn
       Left = 5
       Top = 22

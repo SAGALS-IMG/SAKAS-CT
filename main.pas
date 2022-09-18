@@ -650,12 +650,15 @@ begin
       Ini.WriteString( Proc1, 'File_Name', CT_Dir+lFN+'CT_*');
       Ini.WriteString( Proc1, 'Method', 'Reconstruction by FBP');
 
+
+      Ini.WriteInteger(Proc1,'Image_Num',StrToInt(Edit_SEnd.Text)-StrToInt(Edit_SStart.Text)+1);
+
       Ini.WriteString( Proc1, 'Width', Edit_PW.Text );
       Ini.WriteString( Proc1, 'Height', Edit_PW.Text );
       Ini.WriteString( Proc1, 'Offset_X', Edit_OFFX.Text );
       Ini.WriteString( Proc1, 'Offset_Y', Edit_OFFY.Text );
       Ini.WriteString( Proc1, 'Pro', Edit_PH.Text );
-      Ini.WriteInteger( Proc1, 'Format', 3);
+      Ini.WriteInteger( Proc1, 'Format', 4);
 
       Ini.WriteBool( Proc1, 'Width_Ext', CB_WE.Checked);
       Ini.WriteBool( Proc1, 'H_Cor', CB_Cor_ClH.Checked);
