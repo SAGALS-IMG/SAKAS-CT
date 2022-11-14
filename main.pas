@@ -218,6 +218,9 @@ type
     BB_STOP_Proc: TBitBtn;
     CB_Ext: TComboBox;
     CB_Ser: TCheckBox;
+    Label38: TLabel;
+    Edit_OFFL: TEdit;
+    Edit_Npro2: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
 
@@ -1584,7 +1587,7 @@ end;
 procedure TForm_main.BB_ReconstClick(Sender: TObject);
 var
   SXInfo: TShellExecuteInfo;
-  li,lj, lPW, PPro,lMag: longint;
+  li,lj, lPW, PPro,lMag, OffL: longint;
   TmpStr : string;
   FS : TFileStream;
 
@@ -1599,12 +1602,15 @@ begin
   PW[2].PW := lPW;
   PW[2].PH := lPW;
 
+  PPro := StrToInt(Edit_NPro2.Text);
+  OffL := StrToInt(Edit_OFFL.Text);
+
   if CB_GPU.Checked then
   begin
     fAng := StrToFloat(Edit_Ang.Text)/180;
     dST := -StrToFloat(Edit_dST.Text)/180*Pi;
     FS := TFileStream.Create(Edit_FN.Text+'_Cuda', fmCreate);
-    for lj:=0 to PPro-1 do
+    for lj:=OFFL to OFFL+PPro-1 do
     begin
       for li:=0 to lPW-1 do
         lSngData[li] := SData[3,lj,li];

@@ -2,7 +2,7 @@ object Form_main: TForm_main
   Left = 0
   Top = 0
   Caption = 'SAKAS_CT'
-  ClientHeight = 834
+  ClientHeight = 888
   ClientWidth = 416
   Color = 16448762
   Constraints.MinWidth = 430
@@ -29,7 +29,7 @@ object Form_main: TForm_main
   end
   object SB: TStatusBar
     Left = 0
-    Top = 815
+    Top = 869
     Width = 416
     Height = 19
     Panels = <>
@@ -350,7 +350,7 @@ object Form_main: TForm_main
     Left = 0
     Top = 735
     Width = 416
-    Height = 80
+    Height = 134
     Align = alClient
     Font.Charset = SHIFTJIS_CHARSET
     Font.Color = clWindowText
@@ -382,7 +382,7 @@ object Form_main: TForm_main
       Top = 18
       Width = 412
       Height = 399
-      ActivePage = TabSheet6
+      ActivePage = TS
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -1113,6 +1113,10 @@ object Form_main: TForm_main
         Font.Style = [fsBold]
         ImageIndex = 1
         ParentFont = False
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Chart1: TChart
           Left = 0
           Top = 210
@@ -1375,6 +1379,10 @@ object Form_main: TForm_main
       object TabSheet3: TTabSheet
         Caption = 'Filter'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Chart2: TChart
           Left = 0
           Top = 201
@@ -1719,9 +1727,9 @@ object Form_main: TForm_main
         ParentFont = False
         object GroupBox5: TGroupBox
           Left = 0
-          Top = 171
+          Top = 200
           Width = 404
-          Height = 197
+          Height = 168
           Align = alBottom
           Caption = 'Center'
           Color = 15331817
@@ -1732,7 +1740,7 @@ object Form_main: TForm_main
             Left = 2
             Top = 50
             Width = 198
-            Height = 145
+            Height = 116
             BackWall.Brush.Style = bsClear
             BackWall.Brush.Gradient.Direction = gdBottomTop
             BackWall.Brush.Gradient.EndColor = clWhite
@@ -1897,7 +1905,7 @@ object Form_main: TForm_main
             Left = 200
             Top = 50
             Width = 202
-            Height = 145
+            Height = 116
             BackWall.Brush.Style = bsClear
             BackWall.Brush.Gradient.Direction = gdBottomTop
             BackWall.Brush.Gradient.EndColor = clWhite
@@ -1976,7 +1984,7 @@ object Form_main: TForm_main
           Left = 0
           Top = 0
           Width = 404
-          Height = 171
+          Height = 200
           Align = alClient
           BevelOuter = bvNone
           Color = 15331817
@@ -2095,6 +2103,13 @@ object Form_main: TForm_main
               3333777777333333333333333333333333333333333333333333}
             NumGlyphs = 2
             OnClick = CB_CopyClick
+          end
+          object Label38: TLabel
+            Left = 3
+            Top = 172
+            Width = 127
+            Height = 16
+            Caption = 'Offset pro, Num pro'
           end
           object Edit_CTC: TEdit
             Left = 55
@@ -2309,11 +2324,43 @@ object Form_main: TForm_main
             Caption = 'Auto Center'
             TabOrder = 15
           end
+          object Edit_OFFL: TEdit
+            Left = 165
+            Top = 167
+            Width = 47
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 16
+            Text = '0'
+          end
+          object Edit_Npro2: TEdit
+            Left = 232
+            Top = 167
+            Width = 47
+            Height = 24
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 17
+            Text = '0'
+          end
         end
       end
       object TabSheet5: TTabSheet
         Caption = 'Reshape'
         ImageIndex = 4
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object GroupBox4: TGroupBox
           Left = 0
           Top = 169
@@ -2584,6 +2631,10 @@ object Form_main: TForm_main
       object TabSheet6: TTabSheet
         Caption = 'Series'
         ImageIndex = 5
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Panel8: TPanel
           Left = 0
           Top = 0
