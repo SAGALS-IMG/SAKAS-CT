@@ -374,6 +374,8 @@ begin
     UD_CTC.Position := Ini.ReadInteger( 'Param', 'CTC_V', 0 );
     Edit_ang.Text := Ini.ReadString( 'Param', 'CT_Pro', '180' );
     Edit_CUDA.Text := Ini.ReadString( 'Param', 'GPU_CT','Cuda_CT.exe' );
+    Edit_OFFL.Text := Ini.ReadString( 'Param', 'PRO_OFFSET','0' );
+    Edit_Npro2.Text := Ini.ReadString( 'Param', 'PRO_2','0' );
 
     Edit_C1.Text := Ini.ReadString( 'Param', 'CTC1','0');
     Edit_S1.Text := Ini.ReadString( 'Param', 'CTC1_S','0');
@@ -469,6 +471,8 @@ begin
     Ini.WriteInteger( 'Param', 'CTC_V', UD_CTC.Position);
     Ini.WriteString( 'Param', 'CT_Pro', Edit_ang.Text );
     Ini.WriteString( 'Param', 'GPU_CT', Edit_CUDA.Text);
+    Ini.WriteString( 'Param', 'PRO_OFFSET',Edit_OFFL.Text );
+    Ini.WriteString( 'Param', 'PRO_2',Edit_Npro2.Text );
 
     Ini.WriteString( 'Param', 'CTC1', Edit_C1.Text );
     Ini.WriteString( 'Param', 'CTC1_S', Edit_S1.Text );
@@ -1601,9 +1605,13 @@ begin
   PPro := PW[1].PH;
   PW[2].PW := lPW;
   PW[2].PH := lPW;
+  OffL := 0;
 
-  PPro := StrToInt(Edit_NPro2.Text);
-  OffL := StrToInt(Edit_OFFL.Text);
+  if StrToInt(Edit_NPro2.Text)<>0 then
+  begin
+    PPro := StrToInt(Edit_NPro2.Text);
+    OffL := StrToInt(Edit_OFFL.Text);
+  end;
 
   if CB_GPU.Checked then
   begin
