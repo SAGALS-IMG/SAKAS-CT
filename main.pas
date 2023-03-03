@@ -1118,6 +1118,17 @@ begin
           PW[0].PData[lj,li] := PW[0].PData[lj,li]-((b-a)/PW[0].PH*lj+a);
     end;
 
+//    for lj:=0 to PW[0].PH-1 do
+//    begin
+//      for li:=0 to PW[0].PW-1 do
+//        PW[1].PData[lj*2,li] := PW[0].PData[lj,li];
+//      for li:=0 to PW[0].PW-1 do
+//        PW[1].PData[lj*2+1,li] := (PW[0].PData[lj,li]+PW[0].PData[lj+1,li])/2;
+//    end;
+//
+//    PW[0].PH := PW[0].PH*2;
+//    PW[0] := PW[1];
+
     SData[0] := PW[0].PData;
     SData[1] := PW[0].PData;
     SData[2] := PW[0].PData;
