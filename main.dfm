@@ -670,7 +670,7 @@ object Form_main: TForm_main
             Text = '0'
           end
           object CB_Median: TCheckBox
-            Left = 207
+            Left = 200
             Top = 163
             Width = 78
             Height = 17
@@ -742,6 +742,14 @@ object Form_main: TForm_main
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 12
+          end
+          object CB_X2: TCheckBox
+            Left = 284
+            Top = 163
+            Width = 117
+            Height = 17
+            Caption = 'X2 Interpolate'
+            TabOrder = 13
           end
         end
         object GroupBox2: TGroupBox
@@ -1113,10 +1121,6 @@ object Form_main: TForm_main
         Font.Style = [fsBold]
         ImageIndex = 1
         ParentFont = False
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Chart1: TChart
           Left = 0
           Top = 210
@@ -1379,10 +1383,6 @@ object Form_main: TForm_main
       object TabSheet3: TTabSheet
         Caption = 'Filter'
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Chart2: TChart
           Left = 0
           Top = 201
@@ -2357,10 +2357,6 @@ object Form_main: TForm_main
       object TabSheet5: TTabSheet
         Caption = 'Reshape'
         ImageIndex = 4
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object GroupBox4: TGroupBox
           Left = 0
           Top = 169
@@ -2631,10 +2627,6 @@ object Form_main: TForm_main
       object TabSheet6: TTabSheet
         Caption = 'Series'
         ImageIndex = 5
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Panel8: TPanel
           Left = 0
           Top = 0
